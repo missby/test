@@ -1,0 +1,35 @@
+server:
+  port: 5906
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:com/unicom/dao/*.xml
+durid:
+  data:
+    driverClassName: com.pivotal.jdbc.GreenplumDriver
+#    url: jdbc:pivotal:greenplum://132.46.125.58:5000;DatabaseName=postgres
+#    username: hold_2i
+#    password: 2i_hold_sys
+#    url: jdbc:pivotal:greenplum://132.46.125.58:5000;DatabaseName=hold_test
+#    username: hold_test
+#    password: hold_test20180910
+    initialSize: 5
+    minIdle: 10
+    maxActive: 40
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    testWhileIdle: true
+    testOnBorrow: true
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 10
+    validationQuery: SELECT 1
+    removeAbandoned: true
+    removeAbandonedTimeout: 1800
+    logAbandoned: true
+spring:
+  profiles:
+    active: test
+  resources:
+    static-locations: classpath:/
+    add-mappings: true
